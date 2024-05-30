@@ -5,10 +5,10 @@
   "devDependencies": {
     "cypress": "^13.10.0",
     "cypress-multi-reporters": "^1.5.0",
-    "mocha": "^9.1.2",
-    "mochawesome": "^6.2.2",
-    "mochawesome-merge": "^4.2.0",
-    "mochawesome-report-generator": "^5.2.0",
+    "mocha": "^10.4.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
     "typescript": "^5.4.5"
   },
   "scripts": {
@@ -25,5 +25,4 @@
     "url": "https://github.com/rossbellingham/swaglabs-cypress/issues"
   },
   "homepage": "https://github.com/rossbellingham/swaglabs-cypress#readme"
-  }
-
+}
