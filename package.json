@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
-    "cypress": "^13.10.0"
+    "cypress": "^13.10.0",
+    "cypress-multi-reporters": "^1.5.0",
+    "mocha": "^9.1.2",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0",
+    "typescript": "^5.4.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +24,6 @@
   "bugs": {
     "url": "https://github.com/rossbellingham/swaglabs-cypress/issues"
   },
-  "homepage": "https://github.com/rossbellingham/swaglabs-cypress#readme",
-  "description": ""
-}
+  "homepage": "https://github.com/rossbellingham/swaglabs-cypress#readme"
+  }
+
