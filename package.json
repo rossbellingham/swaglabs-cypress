@@ -12,7 +12,9 @@
     "typescript": "^5.4.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cyo": "cypress open", 
+    "cyr": "cypress run"
   },
   "keywords": [],
   "author": "Ross Bellingham",
