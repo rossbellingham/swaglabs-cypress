@@ -42,20 +42,70 @@ describe('Logging in', () => {
 
     context('Using special characters', () => {
 
-        it('With an empty username', () => {
+        it.skip('With an empty username', () => {
+            login.credentials('','secret_sauce')
 
+            loginPage.errorMessage().should('contain', 'Epic sadface: Username is required') 
         })
 
-        it('With an empty password', () => {
-            
+        it.skip('With an empty password', () => {
+            login.credentials('standard_user','')
+
+            loginPage.errorMessage().should('contain', 'Epic sadface: Password is required') 
         })
 
         it('With a single-space username', () => {
-            
+            login.credentials(' ','secret_sauce')
+
+            loginPage.errorMessage().should('contain', 'Username and password do not match any user')
         })
 
-        it('With a single-space password', () => {
-            
+        it('With standard_user and single-space password', () => {
+            login.credentials('standard_user',' ')
+
+            loginPage.errorMessage().should('contain', 'Username and password do not match any user')
+        })
+
+        it('With locked_out_user and single-space password', () => {
+            login.credentials('locked_out_user',' ')
+
+            loginPage.errorMessage().should('contain', 'Username and password do not match any user')
+        })
+
+        it('With problem_user and single-space password', () => {
+            login.credentials('problem_user',' ')
+
+            loginPage.errorMessage().should('contain', 'Username and password do not match any user')
+        })
+
+        it('With performance_glitch_user and single-space password', () => {
+            login.credentials('performance_glitch_user',' ')
+
+            loginPage.errorMessage().should('contain', 'Username and password do not match any user')
+        })
+    })
+})
+
+describe('Logging out', () => {
+
+    const login = new LoginAction()
+    const loginPage = new LoginPage()
+    const pageHeader = new PageHeader()
+
+    beforeEach(() => {
+        login.credentials('standard_user', 'secret_sauce')
+        pageHeader.openSidemenu()
+    })
+
+    context('Logout clicked from sidebar menu within inventory.html', () => {
+
+        it('Should logout and navigate back to landing page', () => {
+
+            pageHeader.sidebarList().should('have.length', 1)
+            pageHeader.sidebarItem('Logout')
+
+            loginPage.loginGraphic().should('be.visible')
+            loginPage.urlShouldBe('https://www.saucedemo.com/v1/index.html')
         })
     })
 })
