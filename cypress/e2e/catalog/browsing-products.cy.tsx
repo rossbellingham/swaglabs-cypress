@@ -10,7 +10,7 @@ describe('When browsing the catalog', () => {
 
     beforeEach(() => {
         login.credentials('standard_user', 'secret_sauce')
-    });
+    })
 
     context('All six products should be displayed', () => {
 

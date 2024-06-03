@@ -9,11 +9,11 @@ export class Catalog {
     addToCartButtons() { return cy.get('[data-test^=add-to-cart]') }
 
     addItem(product) {
-        cy.contains('.inventory_item', product).contains('Add to cart').click()
+        cy.contains('.inventory_item', product).contains('ADD TO CART').click()
     }
 
     removeItem(product) {
-        cy.contains('.inventory_item', product).contains('Remove').click()
+        cy.contains('.inventory_item', product).contains('REMOVE').click()
     }
 
     removeFromCartButtons() { return cy.get('[data-test^=remove]') }

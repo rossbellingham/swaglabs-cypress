@@ -4,11 +4,11 @@ import { LoginAction } from '../../actions/login';
 import { LoginPage } from '../../page-objects/login-page';
 import { PageHeader } from '../../page-objects/page-header';
 
-describe('Logging in', () => {
+const login = new LoginAction()
+const loginPage = new LoginPage()
+const pageHeader = new PageHeader()
 
-    const login = new LoginAction()
-    const loginPage = new LoginPage()
-    const pageHeader = new PageHeader()
+describe('Logging in', () => {
 
     context('With a valid user account', () => {
 
@@ -88,24 +88,20 @@ describe('Logging in', () => {
 
 describe('Logging out', () => {
 
-    const login = new LoginAction()
-    const loginPage = new LoginPage()
-    const pageHeader = new PageHeader()
-
     beforeEach(() => {
         login.credentials('standard_user', 'secret_sauce')
-        pageHeader.openSidemenu()
+        pageHeader.openSidebarmenu()
     })
 
     context('Logout clicked from sidebar menu within inventory.html', () => {
 
         it('Should logout and navigate back to landing page', () => {
 
-            pageHeader.sidebarList().should('have.length', 1)
+            pageHeader.sidebarListContainer().should('have.length', 1)
             pageHeader.sidebarItem('Logout')
 
             loginPage.loginGraphic().should('be.visible')
-            loginPage.urlShouldBe('https://www.saucedemo.com/v1/index.html')
+            pageHeader.urlShouldBe('https://www.saucedemo.com/v1/index.html')
         })
     })
 })
